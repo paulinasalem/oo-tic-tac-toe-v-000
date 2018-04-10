@@ -20,14 +20,14 @@ end
 def move(index, value="X")
   @board[index] = value
 end
-def position_taken?(board, index_number)
-if board[index_number] == " "
+def position_taken?(@board, index_number)
+if @board[index_number] == " "
 return false
-elsif board[index_number] == ""
+elsif @board[index_number] == ""
 return false
-elsif board[index_number] == nil
+elsif @board[index_number] == nil
 return false
-elsif board[index_number] == "X" || "O"
+elsif @board[index_number] == "X" || "O"
 return true
 end
 end
