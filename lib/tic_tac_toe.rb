@@ -18,7 +18,7 @@ def input_to_index(input)
   input.to_i - 1
 end
 def move(index, value="X")
-  board[index] = value
+  @board[index] = value
 end
 def position_taken?(board, index_number)
 if board[index_number] == " "
