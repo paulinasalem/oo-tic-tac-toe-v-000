@@ -48,10 +48,10 @@ end
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
   def won?
-  WIN_COMBINATIONS.detect do |combo|
-    position_taken?(combo[1]) && (combo[0]) == (combo[1]) && (combo[1]) == (combo[2])
+    WIN_COMBINATIONS.detect do |combo|
+      position_taken?(board, combo[1]) && board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]
+    end
   end
-end
 def full?
 @board.all? do |full_board|
 full_board == "X" || full_board == "O"
