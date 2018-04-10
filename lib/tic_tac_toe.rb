@@ -20,21 +20,21 @@ end
 def move(index, value="X")
   @board[index] = value
 end
-def position_taken?(board, index)
-if board[index] == " "
+def position_taken?(index)
+if @board[index] == " "
 return false
-elsif board[index] == ""
+elsif @board[index] == ""
 return false
-elsif board[index] == nil
+elsif @board[index] == nil
 return false
-elsif board[index] == "X" || "O"
+elsif @board[index] == "X" || "O"
 return true
 end
 end
-def valid_move?(board, index_number)
-if position_taken?(board, index_number)
+def valid_move?(index_number)
+if position_taken?(index)
   return false
-elsif index_number.between?(0, 8)
+elsif index.between?(0, 8)
   return true
 else
   return false
@@ -47,32 +47,32 @@ end
     puts "-----------"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
-  def won?(board)
+  def won?
   WIN_COMBINATIONS.detect do |combo|
-    position_taken?(board, combo[1]) && board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]
+    position_taken?(combo[1]) && (combo[0]) == (combo[1]) && (combo[1]) == (combo[2])
   end
 end
-def full?(board)
-board.all? do |full_board|
+def full?
+@board.all? do |full_board|
 full_board == "X" || full_board == "O"
 end
 end
-def draw?(board)
-if !!full?(board) && !won?(board)
+def draw?
+if !!full? && !won?
  true
 else
   false
 end
 end
-def over?(board)
-if won?(board) || draw?(board) || full?(board)
+def over?
+if won? || draw? || full?
   true
 else
   false
 end
 end
-def winner(board)
-if !!won?(board)
+def winner
+if !!won?
 board[won?(board)[0]]
 end
 end
