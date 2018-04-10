@@ -20,7 +20,7 @@ end
 def move(index, value="X")
   @board[index] = value
 end
-def position_taken?(index)
+def position_taken?(@index)
 if @board[index] == " "
 return false
 elsif @board[index] == ""
@@ -49,7 +49,7 @@ end
   end
   def won?
     WIN_COMBINATIONS.detect do |combo|
-      position_taken?([combo[1]) && [combo[0]] == [combo[1]] && [combo[1]] == [combo[2]]
+      position_taken?(@board[combo[1]) && @board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]
     end
   end
 def full?
