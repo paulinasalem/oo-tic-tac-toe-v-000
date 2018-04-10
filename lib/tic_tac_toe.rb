@@ -20,7 +20,7 @@ end
 def move(index, value="X")
   @board[index] = value
 end
-def position_taken?(index)
+def position_taken?(@board, index)
 if @board[index] == " "
 return false
 elsif @board[index] == ""
