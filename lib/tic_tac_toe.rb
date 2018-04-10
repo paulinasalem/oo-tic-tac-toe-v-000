@@ -91,7 +91,7 @@ def play
   until !!over?
     turn
   end
-  if winner
+  if won?
     puts "Congratulations #{winner}!"
   elsif draw?
     puts "Cat's Game!"
