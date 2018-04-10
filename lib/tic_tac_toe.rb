@@ -47,4 +47,55 @@ end
     puts "-----------"
     puts " #{@board[6]} | #{@board[7]} | #{@board[8]} "
   end
+  def won?(board)
+  WIN_COMBINATIONS.detect do |combo|
+    position_taken?(board, combo[1]) && board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]
+  end
+end
+def full?(board)
+board.all? do |full_board|
+full_board == "X" || full_board == "O"
+end
+end
+def draw?(board)
+if !!full?(board) && !won?(board)
+ true
+else
+  false
+end
+end
+def over?(board)
+if won?(board) || draw?(board) || full?(board)
+  true
+else
+  false
+end
+end
+def winner(board)
+if !!won?(board)
+board[won?(board)[0]]
+end
+end
+def turn(board)
+  puts "Please enter 1-9:"
+  input = gets
+index = input_to_index(input)
+  if valid_move?(board, index)
+    move(board, index, current_player(board))
+    display_board(board)
+  else
+turn(board)
+end
+end
+def play(board)
+  until over?(board) == true
+    turn(board)
+  end
+  if winner(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cat's Game!"
+end
+end
+
 end
