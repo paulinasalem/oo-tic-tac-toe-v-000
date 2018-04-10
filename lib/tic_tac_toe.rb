@@ -76,24 +76,24 @@ if !!won?
 board[won?(board)[0]]
 end
 end
-def turn(board)
+def turn
   puts "Please enter 1-9:"
   input = gets
 index = input_to_index(input)
-  if valid_move?(board, index)
-    move(board, index, current_player(board))
-    display_board(board)
+  if valid_move?(index)
+    move(index, current_player(board))
+    display_board
   else
-turn(board)
+turn
 end
 end
-def play(board)
-  until over?(board) == true
-    turn(board)
+def play
+  until over? == true
+    turn
   end
-  if winner(board)
+  if winner
     puts "Congratulations #{winner(board)}!"
-  elsif draw?(board)
+  elsif draw?
     puts "Cat's Game!"
 end
 end
