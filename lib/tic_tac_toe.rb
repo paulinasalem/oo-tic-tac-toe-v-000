@@ -31,7 +31,7 @@ elsif @board[index] == "X" || "O"
 return true
 end
 end
-def valid_move?(index_number)
+def valid_move?(index)
 if position_taken?(index)
   return false
 elsif index.between?(0, 8)
