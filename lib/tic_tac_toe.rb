@@ -17,7 +17,7 @@ class TicTacToe
 def input_to_index(input)
   input.to_i - 1
 end
-def move(array, index, value)
+def move(array, index, value="X")
   array[index] = value
 end
 def position_taken?(board, index_number)
